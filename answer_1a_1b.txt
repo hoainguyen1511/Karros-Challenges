@@ -1,0 +1,22 @@
+--1a. Find the different between 2 tables: original & final
+select * from final
+union 
+select * from original 
+except
+	(select * from final 
+	intersect 
+	select * from original)
+order by no asc
+
+
+
+
+--1b. Count the number of records for each of the mapzone values
+
+select mapzone,count(mapzone) from final
+group by mapzone
+order by mapzone asc
+
+select mapzone,count(mapzone) from original
+group by mapzone
+order by mapzone asc
